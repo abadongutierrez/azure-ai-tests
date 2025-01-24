@@ -5,6 +5,7 @@ import com.azure.ai.vision.imageanalysis.ImageAnalysisClientBuilder;
 import com.azure.ai.vision.imageanalysis.models.*;
 import com.azure.core.credential.KeyCredential;
 import com.azure.core.util.BinaryData;
+import com.jabaddon.azureai.EnvVarCollector;
 
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
@@ -26,8 +27,9 @@ import java.util.List;
 
 public class ImageAnalysisExample {
     public static void main(String[] args) throws URISyntaxException {
-        String endpoint = System.getenv("VISION_ENDPOINT");
-        String key = System.getenv("VISION_KEY");
+        List<String> vars = EnvVarCollector.collectEnv("VISION_ENDPOINT", "VISION_KEY");
+        String endpoint = vars.get(0);
+        String key = vars.get(1);
 
         if (endpoint == null || key == null) {
             System.out.println("Missing environment variable 'VISION_ENDPOINT' or 'VISION_KEY'.");

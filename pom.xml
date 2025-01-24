@@ -27,6 +27,11 @@
             <artifactId>azure-search-documents</artifactId>
             <version>11.7.4</version>
         </dependency>
+        <dependency>
+            <groupId>com.azure</groupId>
+            <artifactId>azure-ai-textanalytics</artifactId>
+            <version>5.5.4</version>
+        </dependency>
     </dependencies>
 
 </project>
